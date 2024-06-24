@@ -3,8 +3,10 @@ using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+
 using Azure;
 using Azure.AI.OpenAI;
+
 using Newtonsoft.Json;
 
 namespace ProiectDiploma
@@ -31,9 +33,9 @@ namespace ProiectDiploma
         {
             new AzureCognitiveSearchChatExtensionConfiguration()
             {
-                SearchEndpoint = new Uri("https://emasss.search.windows.net/"),
+                SearchEndpoint = new Uri(Environment.GetEnvironmentVariable("AISEARCH_ENDPOINT")),
                 IndexName = "emaindex",
-                Key = "9nZyfKnZVZlS39vZn7qszacQ4PJ5UkG1XtgqVTJdzYAzSeBBS0BK",
+                Key = Environment.GetEnvironmentVariable("AISEARCH_KEY"),
                 QueryType = AzureCognitiveSearchQueryType.Simple,
             },
         },
@@ -48,7 +50,8 @@ namespace ProiectDiploma
 
             var message = response.Value.Choices[0].Message.Content;
             if (message!.Contains("I'm sorry"))
-                return "Îmi pare rău, nu cred că am înțeles întrebarea ta. Te rog să reformulezi întrebarea sau să îmi oferi mai multe detalii pentru a te putea ajuta.";
+                return "Îmi pare rău, nu cred că am înțeles întrebarea ta. Te rog să reformulezi întrebarea sau să îmi oferi mai multe detalii " +
+                    "pentru a te putea ajuta.";
             else if (message!.Contains("The requested information"))
                 return "Îmi pare rău, dar nu pot răspunde la această întrebare.";
             return RemoveTextBetweenBrackets(message);

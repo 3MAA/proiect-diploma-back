@@ -1,33 +1,28 @@
-﻿{
-  "$schema": "https://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:28903",
-      "sslPort": 44358
-    }
-  },
+{
   "profiles": {
     "http": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5233",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5233"
     },
     "https": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7102;http://localhost:5233",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "OPENAI_ENDPOINT": "https://emaoaift.openai.azure.com/",
+        "OPENAI_KEY": "19b113699f0b4d8c93d5cbb8f13cd6a8",
+        "AISEARCH_ENDPOINT": "https://emasss.search.windows.net/",
+        "AISEARCH_KEY": "9nZyfKnZVZlS39vZn7qszacQ4PJ5UkG1XtgqVTJdzYAzSeBBS0BK"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7102;http://localhost:5233"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -36,6 +31,15 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:28903",
+      "sslPort": 44358
     }
   }
 }
