@@ -40,7 +40,7 @@ namespace ProiectDiploma
             },
         },
                 },
-                DeploymentName = "gpt432k",
+                DeploymentName = "gpt-4-32k",
                 MaxTokens = 800,
                 Temperature = 0,
             };
